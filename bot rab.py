@@ -95,14 +95,9 @@ def getCalcFinans(message):
             
         stringFinal += "\n" + str(o + 1) + ") " + str(arrayDataUsers[o]) + " : " + str(arrayDataFinans[o]) + "% = " + countFinal;
     bot.send_message(message.from_user.id, str(stringFinal));
+    
+    time.sleep(3)
     bot.send_message(message.from_user.id, "Ну как там с деньгами?");
-    bot.register_next_step_handler(message, getTimeSleep);
-        
-        
-def getTimeSleep(message):
-    if message.text !='':
-        time.sleep(3)
-        bot.send_message(message.from_user.id, "Ну как там с деньгами?");
-        getTimeSleep(message)
+       
     
 bot.infinity_polling()
